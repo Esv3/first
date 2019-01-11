@@ -1,0 +1,450 @@
+library(haven)
+
+#loading files
+#2005
+
+#loading data for HSE 2005
+hse2005ai<-read_dta("hse05ai.dta")
+
+#subsetting the data to include only the variables that are needed
+subset2005<-hse2005ai[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+trial2005<-subset2005[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+yr2005<-trial2005[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+
+#renaming the variables so they can match the labels of other years
+yr2005$Year<-"2005"
+names(yr2005)[3]<-"tenure"
+names(yr2005)[9]<-"ethnic"
+names(yr2005)[13]<-"bprespb2"
+names(yr2005)[16]<-"firstsys"
+names(yr2005)[17]<-"secsys"
+names(yr2005)[18]<-"thirdsys"
+names(yr2005)[19]<-"firstdia"
+names(yr2005)[20]<-"secdia"
+names(yr2005)[21]<-"thirddia"
+
+#2006
+
+hse2006ai<-read_dta("hse06ai.dta")
+subset2006<-hse2006ai[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+trial2006<-subset2006[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+yr2006<-trial2006[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+yr2006$Year<-"2006"
+names(yr2006)[3]<-"tenure"
+names(yr2006)[9]<-"ethnic"
+names(yr2006)[13]<-"bprespb2"
+names(yr2006)[16]<-"firstsys"
+names(yr2006)[17]<-"secsys"
+names(yr2006)[18]<-"thirdsys"
+names(yr2006)[19]<-"firstdia"
+names(yr2006)[20]<-"secdia"
+names(yr2006)[21]<-"thirddia"
+yrs0506<-merge(yr2005,yr2006,all=TRUE,sort=FALSE)
+
+#2007
+hse2007ai<-read_dta("hse07ai.dta")
+subset2007<-hse2007ai[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+trial2007<-subset2007[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+yr2007<-trial2007[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","ethinda","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsm","smoke4","kcigregg","chpace")]
+yr2007$Year<-"2007"
+names(yr2007)[3]<-"tenure"
+names(yr2007)[9]<-"ethnic"
+names(yr2007)[13]<-"bprespb2"
+names(yr2007)[16]<-"firstsys"
+names(yr2007)[17]<-"secsys"
+names(yr2007)[18]<-"thirdsys"
+names(yr2007)[19]<-"firstdia"
+names(yr2007)[20]<-"secdia"
+names(yr2007)[21]<-"thirddia"
+yrs050607<-merge(yrs0506,yr2007,all=TRUE,sort=FALSE)
+
+#2008
+hse2008ai<-read_dta("hse08ai.dta")
+subset2008<-hse2008ai[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsmok","smoke4","kcigregg")]
+trial2008<-subset2008[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsmok","smoke4","kcigregg")]
+yr2008<-trial2008[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsmok","smoke4","kcigregg")]
+yr2008$Year<-"2008"
+names(yr2008)[3]<-"tenure"
+names(yr2008)[9]<-"ethnic"
+names(yr2008)[13]<-"bprespb2"
+names(yr2008)[16]<-"firstsys"
+names(yr2008)[17]<-"secsys"
+names(yr2008)[18]<-"thirdsys"
+names(yr2008)[19]<-"firstdia"
+names(yr2008)[20]<-"secdia"
+names(yr2008)[21]<-"thirddia"
+names(yr2008)[33]<-"expsm"
+yrs5to8<-merge(yrs050607,yr2008,all=TRUE,sort=FALSE)
+
+#2009
+hse2009ai<-read_dta("hse09ai.dta")
+subset2009<-hse2009ai[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","smoke4","kcigregg")]
+trial2009<-subset2009[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","smoke4","kcigregg")]
+yr2009<-trial2009[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","expsmok","smoke4","kcigregg")]
+yr2009$Year<-"2009"
+names(yr2009)[3]<-"tenure"
+names(yr2009)[9]<-"ethnic"
+names(yr2009)[13]<-"bprespb2"
+names(yr2009)[16]<-"firstsys"
+names(yr2009)[17]<-"secsys"
+names(yr2009)[18]<-"thirdsys"
+names(yr2009)[19]<-"firstdia"
+names(yr2009)[20]<-"secdia"
+names(yr2009)[21]<-"thirddia"
+names(yr2009)[34]<-"expsm"
+yrs5to9<-merge(yrs5to8,yr2009,all=TRUE,sort=FALSE)
+
+#2010
+hse2010ai<-read_dta("hse10ai.dta")
+subset2010<-hse2010ai[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","smoke4","kcigregg")]
+trial2010<-subset2010[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","smoke4","kcigregg")]
+yr2010<-trial2010[c("pserial","sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin","frtpor","vegpor","birthwt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om","hibp2om","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","smoke4","kcigregg")]
+yr2010$Year<-"2010"
+names(yr2010)[3]<-"tenure"
+names(yr2010)[9]<-"ethnic"
+names(yr2010)[13]<-"bprespb2"
+names(yr2010)[16]<-"firstsys"
+names(yr2010)[17]<-"secsys"
+names(yr2010)[18]<-"thirdsys"
+names(yr2010)[19]<-"firstdia"
+names(yr2010)[20]<-"secdia"
+names(yr2010)[21]<-"thirddia"
+names(yr2010)[35]<-"expsm"
+yrs5to10<-merge(yrs5to9,yr2010,all=TRUE,sort=FALSE)
+
+#2011
+hse2011ai<-read_dta("hse2011ai.dta")
+subset2011<-hse2011ai[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om2","hibp2om2","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","Smoke4","kcigregg")]
+trial2011<-subset2011[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om2","hibp2om2","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","Smoke4","kcigregg")]
+yr2011<-trial2011[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc","bpmedd","hibp1om2","hibp2om2","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","everbp","expsmok","Smoke4","kcigregg")]
+yr2011$Year<-"2011"
+names(yr2011)[2]<-"sex"
+names(yr2011)[3]<-"tenure"
+names(yr2011)[12]<-"birthwt"
+names(yr2011)[9]<-"ethnic"
+names(yr2011)[13]<-"bprespb2"
+names(yr2011)[16]<-"firstsys"
+names(yr2011)[17]<-"secsys"
+names(yr2011)[18]<-"thirdsys"
+names(yr2011)[19]<-"firstdia"
+names(yr2011)[20]<-"secdia"
+names(yr2011)[21]<-"thirddia"
+names(yr2011)[24]<-"hibp1om"
+names(yr2011)[25]<-"hibp2om"
+names(yr2011)[35]<-"expsm"
+names(yr2011)[36]<-"smoke4"
+yrs5to11<-merge(yrs5to10,yr2011,all=TRUE,sort=FALSE)
+
+#2012
+hse2012ai<-read_dta("hse2012ai.dta")
+subset2012<-hse2012ai[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","BirthWt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc2","bpmedd2","hibp1om2","hibp2om2","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","EverBP","expsmok","Smoke4","kcigregg")]
+trial2012<-subset2012[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","BirthWt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc2","bpmedd2","hibp1om2","hibp2om2","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","EverBP","expsmok","Smoke4","kcigregg")]
+yr2012<-trial2012[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","BirthWt","bprespc","omdiaval","omsysval","sys1om","sys2om","sys3om","dias1om","dias2om","dias3om","bpmedc2","bpmedd2","hibp1om2","hibp2om2","bp1","bmival","bmiok","htok","htval","bmicat1","bmicat2","bmicat3","EverBP","expsmok","Smoke4","kcigregg")]
+yr2012$Year<-"2012"
+names(yr2012)[2]<-"sex"
+names(yr2012)[3]<-"tenure"
+names(yr2012)[10]<-"birthwt"
+names(yr2012)[9]<-"ethnic"
+names(yr2012)[11]<-"bprespb2"
+names(yr2012)[14]<-"firstsys"
+names(yr2012)[15]<-"secsys"
+names(yr2012)[16]<-"thirdsys"
+names(yr2012)[17]<-"firstdia"
+names(yr2012)[18]<-"secdia"
+names(yr2012)[19]<-"thirddia"
+names(yr2012)[20]<-"bpmedc"
+names(yr2012)[21]<-"bpmedd"
+names(yr2012)[22]<-"hibp1om"
+names(yr2012)[23]<-"hibp2om"
+names(yr2012)[33]<-"expsm"
+names(yr2012)[34]<-"smoke4"
+names(yr2012)[32]<-"everbp"
+yrs5to12<-merge(yrs5to11,yr2012,all=TRUE,sort=FALSE)
+
+#2013
+hse2013ai<-read_dta("hse2013ai.dta")
+subset2013<-hse2013ai[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","SYS1OM","SYS2OM","SYS3OM","DIAS1OM","DIAS2OM","DIAS3OM","bpmedc2","bpmedd2","hibp1om2","hibp2om2","BMIval","BMIok","Htok","Htval","BMIcat1","BMIcat2","BMIcat3","EverBP","ExpSmok2","Smoke415","kcigregg")]
+trial2013<-subset2013[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","SYS1OM","SYS2OM","SYS3OM","DIAS1OM","DIAS2OM","DIAS3OM","bpmedc2","bpmedd2","hibp1om2","hibp2om2","BMIval","BMIok","Htok","Htval","BMIcat1","BMIcat2","BMIcat3","EverBP","ExpSmok2","Smoke415","kcigregg")]
+yr2013<-trial2013[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","Origin","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","SYS1OM","SYS2OM","SYS3OM","DIAS1OM","DIAS2OM","DIAS3OM","bpmedc2","bpmedd2","hibp1om2","hibp2om2","BMIval","BMIok","Htok","Htval","BMIcat1","BMIcat2","BMIcat3","EverBP","ExpSmok2","Smoke415","kcigregg")]
+yr2013$Year<-"2013"
+names(yr2013)[2]<-"sex"
+names(yr2013)[3]<-"tenure"
+names(yr2013)[12]<-"birthwt"
+names(yr2013)[9]<-"ethnic"
+names(yr2013)[13]<-"bprespb2"
+names(yr2013)[16]<-"firstsys"
+names(yr2013)[17]<-"secsys"
+names(yr2013)[18]<-"thirdsys"
+names(yr2013)[19]<-"firstdia"
+names(yr2013)[20]<-"secdia"
+names(yr2013)[21]<-"thirddia"
+names(yr2013)[22]<-"bpmedc"
+names(yr2013)[23]<-"bpmedd"
+names(yr2013)[24]<-"hibp1om"
+names(yr2013)[25]<-"hibp2om"
+names(yr2013)[26]<-"bmival"
+names(yr2013)[27]<-"bmiok"
+names(yr2013)[28]<-"htok"
+names(yr2013)[29]<-"htval"
+names(yr2013)[30]<-"bmicat1"
+names(yr2013)[31]<-"bmicat2"
+names(yr2013)[32]<-"bmicat3"
+names(yr2013)[34]<-"expsm"
+names(yr2013)[35]<-"smoke4"
+names(yr2013)[33]<-"everbp"
+yrs5to13<-merge(yrs5to12,yr2013,all=TRUE,sort=FALSE)
+
+#2014
+hse2014ai<-read_dta("hse2014ai.dta")
+subset2014<-hse2014ai[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin2","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","SYS1OM","SYS2OM","SYS3OM","DIAS1OM","DIAS2OM","DIAS3OM","bpmedc2","bpmedd2","hibp1om2","hibp2om2","bp1","BMIval","BMIok","Htok","Htval","BMIcat1","BMIcat2","BMIcat3","EverBP","ExpSmok2","Smoke415","kcigregg")]
+trial2014<-subset2014[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin2","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","SYS1OM","SYS2OM","SYS3OM","DIAS1OM","DIAS2OM","DIAS3OM","bpmedc2","bpmedd2","hibp1om2","hibp2om2","bp1","BMIval","BMIok","Htok","Htval","BMIcat1","BMIcat2","BMIcat3","EverBP","ExpSmok2","Smoke415","kcigregg")]
+yr2014<-trial2014[c("pserial","Sex","tenureb","ag215g2","wt_int","wt_nurse","nssec5","hpnssec5","origin2","frtpor","vegpor","BirthWt","bprespc","omdiaval","omsysval","SYS1OM","SYS2OM","SYS3OM","DIAS1OM","DIAS2OM","DIAS3OM","bpmedc2","bpmedd2","hibp1om2","hibp2om2","bp1","BMIval","BMIok","Htok","Htval","BMIcat1","BMIcat2","BMIcat3","EverBP","ExpSmok2","Smoke415","kcigregg")]
+yr2014$Year<-"2014"
+names(yr2014)[2]<-"sex"
+names(yr2014)[3]<-"tenure"
+names(yr2014)[12]<-"birthwt"
+names(yr2014)[9]<-"ethnic"
+names(yr2014)[13]<-"bprespb2"
+names(yr2014)[16]<-"firstsys"
+names(yr2014)[17]<-"secsys"
+names(yr2014)[18]<-"thirdsys"
+names(yr2014)[19]<-"firstdia"
+names(yr2014)[20]<-"secdia"
+names(yr2014)[21]<-"thirddia"
+names(yr2014)[22]<-"bpmedc"
+names(yr2014)[23]<-"bpmedd"
+names(yr2014)[24]<-"hibp1om"
+names(yr2014)[25]<-"hibp2om"
+names(yr2014)[27]<-"bmival"
+names(yr2014)[28]<-"bmiok"
+names(yr2014)[29]<-"htok"
+names(yr2014)[30]<-"htval"
+names(yr2014)[31]<-"bmicat1"
+names(yr2014)[32]<-"bmicat2"
+names(yr2014)[33]<-"bmicat3"
+names(yr2014)[35]<-"expsm"
+names(yr2014)[36]<-"smoke4"
+names(yr2014)[34]<-"everbp"
+yrs5to14<-merge(yrs5to13,yr2014,all=TRUE,sort=FALSE)
+
+#converting to NAs - all the levels of variables that are not valid
+yrs5to14$omdiaval[yrs5to14$omdiaval==-2.0]<-NA
+yrs5to14$omdiaval[yrs5to14$omdiaval==-1.0]<-NA
+yrs5to14$omdiaval[yrs5to14$omdiaval==-7.0]<-NA
+yrs5to14$omdiaval[yrs5to14$omdiaval==-8.0]<-NA
+yrs5to14$omsysval[yrs5to14$omsysval==-1.0]<-NA
+yrs5to14$omsysval[yrs5to14$omsysval==-2.0]<-NA
+yrs5to14$omsysval[yrs5to14$omsysval==-7.0]<-NA
+yrs5to14$ag215g2[yrs5to14$ag215g2==-1.0]<-NA
+yrs5to14$ag215g2[yrs5to14$ag215g2==1.0]<-NA
+yrs5to14$bmicat1[yrs5to14$bmicat1==-1.0]<-NA
+yrs5to14$bmicat2[yrs5to14$bmicat2==-1.0]<-NA
+yrs5to14$bmicat3[yrs5to14$bmicat3==-1.0]<-NA
+yrs5to14$hibp1om[yrs5to14$hibp1om==-1.0]<-NA
+yrs5to14$hibp1om[yrs5to14$hibp1om==-9.0]<-NA
+yrs5to14$hibp1om[yrs5to14$hibp1om==-8.0]<-NA
+yrs5to14$hibp1om[yrs5to14$hibp1om==-7.0]<-NA
+yrs5to14$hibp1om[yrs5to14$hibp1om==-2.0]<-NA
+
+#agedata 2 is the subsetted dataset including only data for children aged 4-15.
+agedata2 <- subset(yrs5to14, yrs5to14$ag215g2>=2&yrs5to14$bmival>0)
+
+#graph 1. 
+#COMPUTING MEAN BP by year - diastolic 
+
+#creating a table with 2 columns - year and mean diastolic blood pressure
+omdiavaltable<-tapply(agedata2$omdiaval,agedata2$Year,mean,na.rm=TRUE)
+#converting this table into a dataframe
+summary_df<-data.frame(omdiavaltable)
+#renaming the columns 
+names(summary_df)<-c("Mean Diastolic BP")
+#inserting the values of 'Year'
+summary_df$Year<-c("2005","2006","2007","2008","2009","2010","2011","2012","2013","2014")
+#creating a graph for mean diastolic BP by year
+library(ggplot2)
+p<-ggplot(summary_df,aes(summary_df$Year,summary_df$`Mean Diastolic BP`))
+p+geom_point(colour="purple", size=3)+geom_line(aes(group = 1))+labs(x="Year", y="Mean diastolic blood pressure (mmHg)", title="Mean diastolic blood pressure by year", subtitle="Children (4-15)", caption="(based on data from HSE)")
+
+#computing graph of two-year average diastolic BP trends
+library(data.table)
+data.table<-data.table(x=c("2005-6", "2007-8","2009-10","2011-12", "2013-14"), y=c("72.13202","71.93472","72.470265","71.675735","71.516955"))
+twoyeardias<-data.frame(data.table)
+names(twoyeardias)<-c("Year", "Mean diastolic blood pressure (mmHg)")
+r<-ggplot(twoyeardias,aes(twoyeardias$Year,twoyeardias$"Mean diastolic blood pressure (mmHg)"))
+r+geom_point(colour="PURPLE", size=3)+labs(x="Year", y="Mean diastolic blood pressure (mmHg)", title="Mean diastolic BP by two-year averages", subtitle="Children (4-15)", caption="(based on data from HSE)")
+r+geom_point(colour="purple",size=3)+geom_line(aes(group=1))+labs(x="Year", y="Mean diastolic blood pressure (mmHg)", title="Mean diastolic BP by two-year averages", subtitle="Children (4-15)", caption="(based on data from HSE)")
+
+
+#COMPUTING MEAN SYSTOLIC BP by year 
+omsystolictable<-tapply(agedata2$omsysval,agedata2$Year,mean,na.rm=TRUE)
+summary_dfs<-data.frame(omsystolictable)
+names(summary_dfs)<-c("Mean Systolic BP")
+summary_dfs$Year<-c("2005","2006","2007","2008","2009","2010","2011","2012","2013","2014")
+library(ggplot2)
+p<-ggplot(summary_df,aes(summary_df$Year,summary_df$`Mean Systolic BP`))
+p+geom_point(colour="blue", size=3)+labs(x="Year", y="Mean systolic blood pressure (mmHg)", title="Mean systolic blood pressure by year", subtitle="Children (4-15)", caption="(based on data from HSE)")
+
+#computing graph of two-year average systolic BP
+omsystolaveragetable<-tapply(yrs5to14$omsysval,yrs5to14$Year,mean,na.rm=TRUE)
+summary_sysav_df<-data.frame(omsystolaveragetable)
+names(summary_sysav_df)<-c("Mean Systolic BP")
+summary_sysav_df$Year<-c("2005","2006","2007","2008","2009","2010","2011","2012","2013","2014")
+data.s.table<-data.table(x=c("2005-6", "2007-8","2009-10","2011-12", "2013-14"), y=c("122.93640","120.70765","122.85245","120.7458","120.9919"))
+twoyearsys<-data.frame(data.s.table)
+names(twoyearsys)<-c("Year", "Mean systolic blood pressure (mmHg)")
+r<-ggplot(twoyearsys,aes(twoyearsys$Year,twoyearsys$"Mean systolic blood pressure (mmHg)"))
+r+geom_point(colour="BLUE", size=3)+geom_line(aes(group=1))+labs(x="Year", y="Mean systolic blood pressure (mmHg)", title="Mean systolic BP by two-year averages", subtitle="Children (4-15)", caption="(based on data from HSE)")
+
+
+#BMI TRENDS
+bmitable<-tapply(agedata2$bmival,agedata2$Year,mean,na.rm=TRUE)
+summary_bmi<-data.frame(bmitable)
+names(summary_bmi)<-c("Mean Valid BMI")
+summary_bmi$Year<-c("2005","2006","2007","2008","2009","2010","2011","2012","2013","2014")
+b<-ggplot(summary_bmi,aes(summary_bmi$Year,summary_bmi$`Mean Valid BMI`))
+b+geom_point(colour="red", size=2)+geom_line(aes(group=1))+labs(x="Year", y="Mean Valid BMI", title="Mean BMI by year", subtitle="Children (4-15)", caption="(based on data from HSE)")
+
+
+#TRENDS OF OBESITY - percentage of children who are classified as obese 
+#OBESITY
+library(plyr)
+#calculating the number of obese children for each year
+bmi2005<-subset(agedata2,agedata2$Year==2005)
+count(bmi2005$bmicat3==1)
+bmi2006<-subset(agedata2,agedata2$Year==2006)
+count(bmi2006$bmicat3==1)
+bmi2007<-subset(agedata2,agedata2$Year==2007)
+count(bmi2007$bmicat3==1)
+bmi2008<-subset(agedata2,agedata2$Year==2008)
+count(bmi2008$bmicat3==1)
+bmi2009<-subset(agedata2,agedata2$Year==2009)
+count(bmi2009$bmicat3==1)
+bmi2010<-subset(agedata2,agedata2$Year==2010)
+count(bmi2010$bmicat3==1)
+bmi2011<-subset(agedata2,agedata2$Year==2011)
+count(bmi2011$bmicat3==1)
+bmi2012<-subset(agedata2,agedata2$Year==2012)
+count(bmi2012$bmicat3==1)
+bmi2013<-subset(agedata2,agedata2$Year==2013)
+count(bmi2013$bmicat3==1)
+bmi2014<-subset(agedata2,agedata2$Year==2014)
+count(bmi2014$bmicat3==1)
+
+library(data.table)
+data.table<-data.table(x= c("2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014"), y= c("19.015", "16.913", "17.201", "16.859", "16.466", "16.692", "16.448", "14.335", "15.730", "17.427"))
+obesetable<-data.frame(data.table)
+names(obesetable)<-c("Year", "Proportion of obese 4-15 yr-olds (%)")
+r<-ggplot(obesetable,aes(obesetable$Year,obesetable$"Proportion of obese 4-15 yr-olds (%)"))
+r+geom_point(colour="red", size=3)+geom_line(aes(group=1))+labs(x="Year", y="Proportion of obese 4-15 yr-olds (%)", title="Trend of obesity in children", subtitle="Children (4-15)", caption="(based on data from HSE)")
+
+
+#Trends of hypertension - creating the dataset for hypertension that i will use for the log. reg model.
+
+#calculating the thresholds for hypertension (greater than the 95th percentile)
+quantile(agedata2$omsysval,0.95,na.rm = TRUE) #calculating the 95th percentile for HBP = 124.5
+quantile(agedata2$omsysval,0.90,na.rm = TRUE) #calculating the 90th percentile for HBP = 119.5
+#creating a duplicate dataframe called hyper
+hyper<-data.frame(agedata2)
+#creating a dataframe called "dat.overwrite" with an added binary variable (1 = hypertensive, 0 = normotensive)
+dat.overwrite<-mutate(hyper,omsysval = ifelse(omsysval>124.5, 1, 0))
+
+#counting the number of children who are classified as hypertensive for each year
+hyper2005<-subset(dat.overwrite,dat.overwrite$Year==2005)
+count(hyper2005$omsysval==1)
+hyper2006<-subset(dat.overwrite,dat.overwrite$Year==2006)
+count(hyper2006$omsysval==1)
+hyper2007<-subset(dat.overwrite,dat.overwrite$Year==2007)
+count(hyper2007$omsysval==1)
+hyper2008<-subset(dat.overwrite,dat.overwrite$Year==2008)
+count(hyper2008$omsysval==1)
+hyper2009<-subset(dat.overwrite,dat.overwrite$Year==2009)
+count(hyper2009$omsysval==1)
+hyper2010<-subset(dat.overwrite,dat.overwrite$Year==2010)
+count(hyper2010$omsysval==1)
+hyper2011<-subset(dat.overwrite,dat.overwrite$Year==2011)
+count(hyper2011$omsysval==1)
+hyper2012<-subset(dat.overwrite,dat.overwrite$Year==2012)
+count(hyper2012$omsysval==1)
+hyper2013<-subset(dat.overwrite,dat.overwrite$Year==2013)
+count(hyper2013$omsysval==1)
+hyper2014<-subset(dat.overwrite,dat.overwrite$Year==2014)
+count(hyper2014$omsysval==1)
+
+#creating the graph of hypertension trends
+library(data.table)
+data.tableh<-data.table(x= c("2004", "2005", "2006", "2007", "2008", "2010", "2011", "2012", "2013", "2014"), y= c("4.32", "4.14", "4.75", "4.74", "5.79", "4.70", "3.87", "4.14", "4.28", "5.42") )
+hypertable<-data.frame(data.tableh)
+names(hypertable)<-c("Year", "Proportion of hypertensive 4-15 yr-olds (%)")
+r<-ggplot(hypertable,aes(hypertable$Year,hypertable$"Proportion of hypertensive 4-15 yr-olds (%)"))
+r+geom_point(colour="orange", size=3)+geom_line(aes(group = 1))+labs(x="Year", y="Proportion of hypertensive 4-15 yr-olds (%)", title="Trend of hypertension in children", subtitle="Children (4-15)", caption="(based on data from HSE)")
+
+
+
+#LOGISTIC REGRESSION (where age has a weird minus coefficient)
+
+#creating a binary variable for whether a child is obese or not
+library(dplyr)
+quantile(agedata2$bmival,0.95,na.rm = TRUE) #95th percentile = 25.92336
+agedata2$obese=ifelse(agedata2$bmival>=25.92336,1,0) 
+table(agedata2$obese)
+
+#REG 1: controlling for age, sex, height and bmi
+simple<-glm(omsysval~ag215g2+sex+htval+bmival, family = binomial(link='logit'),data=dat.overwrite)
+summary(simple)
+
+#REG 2: bmi, age, sex, birthweight, fruit and veg, height
+almost<-glm(omsysval~bmival+ag215g2+sex+birthwt+frtpor+vegpor+htval, family = binomial(link='logit'),data=dat.overwrite)
+summary(almost)
+
+# logistic model (w all variables included except obesity) for hypertension
+modelhyp<-glm(omsysval~bmival+ag215g2+sex+birthwt+frtpor+vegpor+htval, family = binomial(link='logit'),data=dat.overwrite)
+summary(modelhyp) #this is the model where the age coefficient is negative! 
+
+#regression including everything including obesity
+modelobese<-glm(omsysval~bmival+ag215g2+sex+birthwt+frtpor+vegpor+htval+bmicat3, family = binomial(link='logit'),data=dat.overwrite)
+summary(modelobese)
+
+
+#multivariate linear regression (the following regressions have low R-squareds):
+
+#systolic 
+model2<-lm(log((omsysval)) ~ bmival+ag215g2+htval,data=agedata2)
+summary(model2)
+#after introducing log(), the R squared rises to 19.76
+
+model3<-lm(log((omsysval)) ~ bmival+ag215g2+htval+sex,data=agedata2)
+summary(model3)
+
+model4<-lm(log((omsysval)) ~ bmival+ag215g2+htval+sex+birthwt+frtpor+vegpor,data=agedata2)
+summary(model4)
+
+model5<-lm(log((omsysval))~ bmival+ag215g2+sex+birthwt+frtpor+vegpor+htval,data=agedata2)
+summary(model5)
+
+model6<-lm(omdiaval~ bmival+ag215g2+sex+birthwt+frtpor+vegpor+htval,data=agedata2)
+summary(model6) 
+
+
+
+
+#confidence intervals
+
+#calculating confidence intervals for models
+exp(summary(modelobese)$coefficients["bmival",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["bmival",2]
+exp(summary(modelobese)$coefficients["ag215g2",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["ag215g2",2]
+exp(summary(modelobese)$coefficients["sex",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["sex",2]
+exp(summary(modelobese)$coefficients["birthwt",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["birthwt",2]
+exp(summary(modelobese)$coefficients["frtpor",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["frtpor",2]
+exp(summary(modelobese)$coefficients["vegpor",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["vegpor",2]
+exp(summary(modelobese)$coefficients["htval",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["htval",2]
+exp(summary(modelobese)$coefficients["bmival",1])+ 
+  qnorm(c(0.025,0.5,0.975)) * summary(modelobese)$coefficients["bmicat3",2]
+
+
